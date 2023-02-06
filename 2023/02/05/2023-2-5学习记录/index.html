@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2023-2-5学习记录 - 一条懒狗的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="一条懒狗的博客"><meta name="msapplication-TileImage" content="/imgs/avatar.jpg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="一条懒狗的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="编程题连续二进制 连续二进制_金山WPS笔试题_牛客网 (nowcoder.com) 计算一个整数的二进制表示中连续出现1最多的次数。 比如13的二进制是：1101，那么他的二进制表示中连续出现的1最多为2次，所以答案就是2：  12345678910111213141516171819const rl &amp;#x3D; require(&amp;quot;readline&amp;quot;).createInterface"><meta property="og:type" content="blog"><meta property="og:title" content="2023-2-5学习记录"><meta property="og:url" content="https://bisbis233/github.io/2023/02/05/2023-2-5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><meta property="og:site_name" content="一条懒狗的博客"><meta property="og:description" content="编程题连续二进制 连续二进制_金山WPS笔试题_牛客网 (nowcoder.com) 计算一个整数的二进制表示中连续出现1最多的次数。 比如13的二进制是：1101，那么他的二进制表示中连续出现的1最多为2次，所以答案就是2：  12345678910111213141516171819const rl &amp;#x3D; require(&amp;quot;readline&amp;quot;).createInterface"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://bisbis233/img/og_image.png"><meta property="article:published_time" content="2023-02-05T03:08:19.000Z"><meta property="article:modified_time" content="2023-02-06T00:10:39.452Z"><meta property="article:author" content="一条懒狗"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://bisbis233/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://bisbis233/github.io/2023/02/05/2023-2-5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"},"headline":"2023-2-5学习记录","image":["https://bisbis233/img/og_image.png"],"datePublished":"2023-02-05T03:08:19.000Z","dateModified":"2023-02-06T00:10:39.452Z","author":{"@type":"Person","name":"一条懒狗"},"publisher":{"@type":"Organization","name":"一条懒狗的博客","logo":{"@type":"ImageObject","url":"https://bisbis233/imgs/avatar.jpg"}},"description":"编程题连续二进制 连续二进制_金山WPS笔试题_牛客网 (nowcoder.com) 计算一个整数的二进制表示中连续出现1最多的次数。 比如13的二进制是：1101，那么他的二进制表示中连续出现的1最多为2次，所以答案就是2：  12345678910111213141516171819const rl &#x3D; require(&quot;readline&quot;).createInterface"}</script><link rel="canonical" href="https://bisbis233/github.io/2023/02/05/2023-2-5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><link rel="icon" href="/imgs/avatar.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/imgs/avatar.jpg" alt="一条懒狗的博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-02-05T03:08:19.000Z" title="2023/2/5 上午11:08:19">2023-02-05</time>发表</span><span class="level-item"><time dateTime="2023-02-06T00:10:39.452Z" title="2023/2/6 上午8:10:39">2023-02-06</time>更新</span><span class="level-item">17 分钟读完 (大约2488个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">2023-2-5学习记录</h1><div class="content"><h3 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h3><h4 id="连续二进制"><a href="#连续二进制" class="headerlink" title="连续二进制"></a>连续二进制</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/c0d2a4df86f6471e93fce1eeb8df3240">连续二进制_金山WPS笔试题_牛客网 (nowcoder.com)</a></p>
+<p>计算一个整数的二进制表示中连续出现1最多的次数。</p>
+<p>比如13的二进制是：1101，那么他的二进制表示中连续出现的1最多为2次，所以答案就是2：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rl = <span class="built_in">require</span>(<span class="string">&quot;readline&quot;</span>).<span class="title function_">createInterface</span>(&#123; <span class="attr">input</span>: process.<span class="property">stdin</span> &#125;);</span><br><span class="line"><span class="keyword">var</span> iter = rl[<span class="title class_">Symbol</span>.<span class="property">asyncIterator</span>]();</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">readline</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; (<span class="keyword">await</span> iter.<span class="title function_">next</span>()).<span class="property">value</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">while</span>(line = <span class="keyword">await</span> <span class="title function_">readline</span>())&#123;</span><br><span class="line">        <span class="keyword">let</span> a = <span class="built_in">parseInt</span>(line).<span class="title function_">toString</span>(<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">let</span> arr = a.<span class="title function_">split</span>(<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">max,cur</span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> cur_length = cur.<span class="property">length</span></span><br><span class="line">            <span class="keyword">if</span>(cur_length&gt;max)&#123;</span><br><span class="line">                max = cur_length</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> max</span><br><span class="line">        &#125;,<span class="number">0</span>)) </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h3><p><code>box-sizing</code>的属性： <code>content-box</code>|<code>border-box</code>|<code>inherit</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">content-box</td>
+<td align="left">默认值。如果你设置一个元素的宽为 100px，那么这个元素的内容区会有 100px 宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中。</td>
+</tr>
+<tr>
+<td align="left">border-box</td>
+<td align="left">告诉浏览器：你想要设置的边框和内边距的值是包含在 width 内的。也就是说，如果你将一个元素的 width 设为 100px，那么这 100px 会包含它的 border 和 padding，内容区的实际宽度是 width 减 去(border + padding) 的值。大多数情况下，这使得我们更容易地设定一个元素的宽高。 <strong>注：</strong>border-box 不包含 margin。</td>
+</tr>
+<tr>
+<td align="left">inherit</td>
+<td align="left">指定 box-sizing 属性的值，应该从父元素继承</td>
+</tr>
+</tbody></table>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123; <span class="attr">c</span>:<span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b.<span class="property">c</span> = <span class="number">2</span></span><br><span class="line">a.<span class="property">c</span> = (?)<span class="comment">//undefine</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>正则里的 $ 描述正确的是（）</p>
+<ol>
+<li>匹配数字</li>
+<li>匹配字符串的开始</li>
+<li>匹配字符串的结束</li>
+<li>都不是</li>
+</ol>
+<p>答：</p>
+<ul>
+<li>^是正则表达式匹配字符串开始位置</li>
+<li>$是正则表达式匹配字符串结束位置</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>let [a = 1, b] = []; </code></p>
+<p><code>a=? ,b=?</code></p>
+<p>答：此处 a &#x3D; 1 相当于给了a 一个默认值 1，而 b 的默认值就是undefine</p>
+<p>[关于ES6解构表达式let<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/2dc992ff6da14b1da28bf70d55dc1ef7">a&#x3D;1,b]&#x3D;[];描述正确的是_格力笔试题_牛客网 (nowcoder.com)</a></p>
+</blockquote>
+<blockquote>
+<p><strong>关于ES6 箭头函数 ()&#x3D;&gt;{} ，描述错误的是（）</strong>                                        </p>
+<ul>
+<li>当箭头函数没有参数或有大于等于两个的参数时，必须使用括号，如：let a &#x3D; ()&#x3D;&gt;{} 或 let a &#x3D; (b, c) &#x3D;&gt; {};</li>
+<li>箭头函数没有arguments 绑定</li>
+<li>箭头函数的this是函数定义的对象，而不是使用函数的对象</li>
+<li>var f &#x3D; v &#x3D;&gt; v;以上语法有误</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/ee1dc9901de0456e9866ed88ace00878">关于ES6箭头函数()&#x3D;&gt;{}，描述错误的是（_格力笔试题_牛客网 (nowcoder.com)</a></p>
+<p>答案:D</p>
+</blockquote>
+<h3 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h3><blockquote>
+<p><strong><code>[] == []</code>输出的结果是？为什么？</strong></p>
+<p>答：</p>
+<ul>
+<li><p>[]&#x3D;&#x3D;[]输出的结果为false；      </p>
+</li>
+<li><p>首先，‘&#x3D;&#x3D;’运算符比较的是两个操作数是否相等，（这里不是指严格相等），两个操作数都是空数组，都是Object对象。但是对象的比较并非是值得比较，即使这两个都是空数组（包含同样的属性和数值都为空），但是这两个数组在引用上都不是同一个数组，所以他们也是不相等。</p>
+</li>
+</ul>
+<p>[<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/0b2c54776fb841db92151f6a6e56d97d">] &#x3D;&#x3D; []&amp;_金山WPS笔试题_牛客网 (nowcoder.com)</a></p>
+</blockquote>
+<blockquote>
+<p><strong>请说出三种减少网页加载时间的方法。</strong></p>
+<p>答：<strong>服务器角度</strong> </p>
+<ul>
+<li><p>采取CDN加速    </p>
+</li>
+<li><p>开启gzip压缩    </p>
+</li>
+<li><p>允许使用强缓存或协商缓存   </p>
+</li>
+<li><p>​    增加服务器带宽</p>
+</li>
+</ul>
+<p>​    <strong>客户端角度</strong>   </p>
+<ul>
+<li>​     合理组织CSS、JavaScript代码位置        </li>
+<li>​     减少DOM操作、添加事件委托        </li>
+<li>​     部分操作可设置防抖和节流        </li>
+<li>​     对于可预见的操作采取preload或prerender的预加载        </li>
+<li>​     对于图片可以懒加载        </li>
+<li>​     合并CSS图片（精灵图&#x2F;雪碧图）        </li>
+<li>​     减少使用iframe</li>
+</ul>
+<p>​    <strong>资源优化打包角度</strong>   </p>
+<ul>
+<li>​     使用打包工具将Js文件、CSS文件和静态文件进行恰当打包处理。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/6f8af0a19c4c44a281ca60a5a62c8b7e">请说出三种减少网页加载时间的方法。_金山WPS笔试题_牛客网 (nowcoder.com)</a></p>
+</blockquote>
+<blockquote>
+<p><strong>请问什么情况下会遇到跨域问题？</strong></p>
+<p>答：跨域问题来自于浏览器的同源策略，即当协议、域名、端口号任意一个不同时，都会引发跨域问题。</p>
+</blockquote>
+<blockquote>
+<p><strong>http协议中与资源缓存相关的协议头有哪些？</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/94859b138f784cf189f880e50499b30b">http协议中与资源缓存相关的协议头有哪些？_金山WPS笔试题_牛客网 (nowcoder.com)</a></p>
+<p><em>请求头</em></p>
+<table>
+<thead>
+<tr>
+<th>协议头</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cache-Control</td>
+<td>用来指定当前的请求&#x2F;回复中的，是否使用缓存机制。</td>
+<td>Cache-Control: no-cache</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>与具体的实现相关，这些字段可能在请求&#x2F;回应链中的任何时候产生。</td>
+<td>Pragma: no-cache</td>
+</tr>
+<tr>
+<td>If-Match</td>
+<td>仅当客户端提供的实体与服务器上对应的实体相匹配时，才进行对应的操作。</td>
+<td>If-Match: “9jd00cdj34pss9ejqiw39d82f20d0ikd”</td>
+</tr>
+<tr>
+<td>If-None-Match</td>
+<td>允许在对应的内容未被修改的情况下返回304未修改（ 304 Not Modified ）</td>
+<td>If-None-Match: “9jd00cdj34pss9ejqiw39d82f20d0ikd”</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>允许在对应的资源未被修改的情况下返回304未修改</td>
+<td>If-Modified-Since: Dec, 26 Dec 2015 17:30:00 GMT</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>允许在对应的资源未被修改的情况下返回304未修改</td>
+<td>If-Modified-Since: Dec, 26 Dec 2015 17:30:00 GMT</td>
+</tr>
+</tbody></table>
+<p><em>响应头</em></p>
+<table>
+<thead>
+<tr>
+<th>协议头</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cache-Control</td>
+<td>通知从服务器到客户端内的所有缓存机制，表示它们是否可以缓存这个对象及缓存有效时间。其单位为秒</td>
+<td>Cache-Control: max-age&#x3D;3600</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>指定一个日期&#x2F;时间，超过该时间则认为此回应已经过期</td>
+<td>Expires: Thu, 01 Dec 1994 16:00:00 GMT</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>与具体的实现相关，这些响应头可能在请求&#x2F;回应链中的不同时候产生不同的效果</td>
+<td>Pragma: no-cache</td>
+</tr>
+<tr>
+<td>ETag</td>
+<td>对于某个资源的某个特定版本的一个标识符，通常是一个 消息散列</td>
+<td>ETag: “737060cd8c284d8af7ad3082f209582d”</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>与具体的实现相关，这些响应头可能在请求&#x2F;回应链中的不同时候产生不同的效果</td>
+<td>Pragma: no-cache</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<p><strong>CSS中box-sizing有哪些值?区别是什么?</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/89130bc3b77d477ab7d84ca57a5e6308">CSS中box-sizing有哪些值?区别是什么?_金山WPS笔试题_牛客网 (nowcoder.com)</a></p>
+<p>Box-sizing用于定义用户该如何计算宽度和高度，属性值有两个： </p>
+<ol>
+<li>​    content-box，默认值，其中设置的width 和height是只包含了内容的宽高（content）,但不包含内边距（padding）、边框（border）、外边距（margin），既设置的width是只包含内容的，如果设置了padding是在这个盒子外部，height同理；      </li>
+<li>​    border-box 其中设置的width和height是包含内容（content）、和padding、border**但是不包含margin,**既当设置了width和padding和border等值，内容实际上的宽度就是（width-padding和border的宽度），height同理</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>DOM Tree与Render Tree之间的区别是什么?</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/6dd4fd0df5274383ac6e4ebda55e5ccf">DOM Tree与Render Tree之间的区别是什么?_金山WPS笔试题_牛客网 (nowcoder.com)</a></p>
+<p>Dom Tree 包含了所有的HTMl标签，包括display：none ，JS动态添加的元素等。 </p>
+<p>Dom Tree 和样式结构体结合后构建呈现Render Tree。Render Tree 能识别样式，每个node都有自己的style，且不包含隐藏的节点（比如display : none的节点）。</p>
+</blockquote>
+<blockquote>
+<p><strong>在Javascript中什么情况下会进行装箱&#x2F;拆箱转换?</strong></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904042066345992">JS：装箱与拆箱 - 掘金 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/8a85253b336844468f9f5e453f04e454">在Javascript中什么情况下会进行装箱&#x2F;拆箱转换?_金山WPS笔试题_牛客网 (nowcoder.com)</a></p>
+<p>装箱：把基本数据类型转换成对应的引用类型的操作。 </p>
+<p>拆箱：把引用类型转换成基本数据类型的操作。 </p>
+<p>在Javascript中出现 基本数据类型数据 和 引用数据类型数据要进行转换的情况下会进行装箱&#x2F;拆箱操作。</p>
+</blockquote>
+<blockquote>
+<p><strong>Http请求返回码（status code）中，代表[未授权的请求]的代码是</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">分类</th>
+<th align="left">分类描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1**</td>
+<td align="left">信息，服务器收到请求，需要请求者继续执行操作</td>
+</tr>
+<tr>
+<td align="left">2**</td>
+<td align="left">成功，操作被成功接收并处理</td>
+</tr>
+<tr>
+<td align="left">3**</td>
+<td align="left">重定向，需要进一步的操作以完成请求</td>
+</tr>
+<tr>
+<td align="left">4**</td>
+<td align="left">客户端错误，请求包含语法错误或无法完成请求</td>
+</tr>
+<tr>
+<td align="left">5**</td>
+<td align="left">服务器错误，服务器在处理请求的过程中发生了错误</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>分类描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>100</td>
+<td>接受的请求正在处理，信息类状态码</td>
+</tr>
+<tr>
+<td>200</td>
+<td>服务器已成功处理了请求</td>
+</tr>
+<tr>
+<td>301</td>
+<td>永久性重定向，表示资源已被分配了新的 URL</td>
+</tr>
+<tr>
+<td>302</td>
+<td>临时性重定向，表示资源临时被分配了新的 URL</td>
+</tr>
+<tr>
+<td>303</td>
+<td>表示资源存在另一个URL，用GET方法获取资源</td>
+</tr>
+<tr>
+<td>304</td>
+<td>自从上次请求后，请求网页未修改过。服务器返回此响应时，不会返回网页内容</td>
+</tr>
+<tr>
+<td>400</td>
+<td>服务器不理解请求的语法</td>
+</tr>
+<tr>
+<td>401</td>
+<td>表示发送的请求需要有通过HTTP认证的认证信息</td>
+</tr>
+<tr>
+<td>403</td>
+<td>服务器拒绝请求</td>
+</tr>
+<tr>
+<td>404</td>
+<td>服务器找不到请求网页</td>
+</tr>
+<tr>
+<td>500</td>
+<td>服务器遇到错误，无法完成请求</td>
+</tr>
+<tr>
+<td>503</td>
+<td>表示服务器处于停机维护或超负载，无法处理请求</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<p><strong>当HTML页面加载完毕时触发的事件是</strong></p>
+<p>window.onload &#x3D; function(){}</p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>2023-2-5学习记录</p><p><a href="https://bisbis233/github.io/2023/02/05/2023-2-5学习记录/">https://bisbis233/github.io/2023/02/05/2023-2-5学习记录/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>一条懒狗</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2023-02-05</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-02-06</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/02/04/2023-2-3%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><span class="level-item">2023-2-3学习记录</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://bisbis233/github.io/2023/02/05/2023-2-5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/';
+            this.page.identifier = '2023/02/05/2023-2-5学习记录/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + '一条懒狗' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/imgs/avatar.jpg" alt="一条懒狗"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">一条懒狗</p><p class="is-size-6 is-block">前端小白</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>广州/珠海</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">5</p></a></div></div></nav></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/"><span class="level-start"><span class="level-item">学习汇总</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-02-05T03:08:19.000Z">2023-02-05</time></p><p class="title"><a href="/2023/02/05/2023-2-5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">2023-2-5学习记录</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-02-04T07:40:13.000Z">2023-02-04</time></p><p class="title"><a href="/2023/02/04/2023-2-3%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">2023-2-3学习记录</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-02-02T08:22:52.000Z">2023-02-02</time></p><p class="title"><a href="/2023/02/02/2023-2-2%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">2023.2.2学习记录</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-10-20T14:31:56.000Z">2022-10-20</time></p><p class="title"><a href="/2022/10/20/Sass%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">Sass学习汇总</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">学习汇总</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-10-10T14:00:55.000Z">2022-10-10</time></p><p class="title"><a href="/2022/10/10/css%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">Css学习汇总</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">学习汇总</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Css/"><span class="tag">Css</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Html/"><span class="tag">Html</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript/"><span class="tag">JavaScript</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Sass/"><span class="tag">Sass</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vue2/"><span class="tag">Vue2</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/imgs/avatar.jpg" alt="一条懒狗的博客" height="28"></a><p class="is-size-7"><span>&copy; 2023 一条懒狗</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
