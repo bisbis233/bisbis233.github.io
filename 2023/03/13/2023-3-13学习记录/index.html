@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2023-3-13学习记录 - 一条懒狗的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="一条懒狗的博客"><meta name="msapplication-TileImage" content="/imgs/avatar.jpg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="一条懒狗的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="说一说cookie sessionStorage localStorage 区别？答： 共同点：  都是在浏览器本地存储 都遵循同源原则，但sessionStorage限制在同一个页面  区别：  cookie是由服务器写入其余的都是由前端写入 cookie的生命周期是在服务器写入时就设定好的；LocalStorage是写入就一直存在（除非手动清除）；SessionStorage是在页面关闭时清除"><meta property="og:type" content="blog"><meta property="og:title" content="2023-3-13学习记录"><meta property="og:url" content="https://bisbis233/github.io/2023/03/13/2023-3-13%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><meta property="og:site_name" content="一条懒狗的博客"><meta property="og:description" content="说一说cookie sessionStorage localStorage 区别？答： 共同点：  都是在浏览器本地存储 都遵循同源原则，但sessionStorage限制在同一个页面  区别：  cookie是由服务器写入其余的都是由前端写入 cookie的生命周期是在服务器写入时就设定好的；LocalStorage是写入就一直存在（除非手动清除）；SessionStorage是在页面关闭时清除"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://bisbis233/img/og_image.png"><meta property="article:published_time" content="2023-03-13T01:35:06.000Z"><meta property="article:modified_time" content="2023-03-15T10:39:09.641Z"><meta property="article:author" content="一条懒狗"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://bisbis233/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://bisbis233/github.io/2023/03/13/2023-3-13%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"},"headline":"2023-3-13学习记录","image":["https://bisbis233/img/og_image.png"],"datePublished":"2023-03-13T01:35:06.000Z","dateModified":"2023-03-15T10:39:09.641Z","author":{"@type":"Person","name":"一条懒狗"},"publisher":{"@type":"Organization","name":"一条懒狗的博客","logo":{"@type":"ImageObject","url":"https://bisbis233/imgs/avatar.jpg"}},"description":"说一说cookie sessionStorage localStorage 区别？答： 共同点：  都是在浏览器本地存储 都遵循同源原则，但sessionStorage限制在同一个页面  区别：  cookie是由服务器写入其余的都是由前端写入 cookie的生命周期是在服务器写入时就设定好的；LocalStorage是写入就一直存在（除非手动清除）；SessionStorage是在页面关闭时清除"}</script><link rel="canonical" href="https://bisbis233/github.io/2023/03/13/2023-3-13%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><link rel="icon" href="/imgs/avatar.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/imgs/avatar.jpg" alt="一条懒狗的博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-03-13T01:35:06.000Z" title="2023/3/13 上午9:35:06">2023-03-13</time>发表</span><span class="level-item"><time dateTime="2023-03-15T10:39:09.641Z" title="2023/3/15 下午6:39:09">2023-03-15</time>更新</span><span class="level-item">14 分钟读完 (大约2036个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">2023-3-13学习记录</h1><div class="content"><h4 id="说一说cookie-sessionStorage-localStorage-区别？"><a href="#说一说cookie-sessionStorage-localStorage-区别？" class="headerlink" title="说一说cookie sessionStorage localStorage 区别？"></a>说一说cookie sessionStorage localStorage 区别？</h4><p>答：</p>
+<p>共同点：</p>
+<ol>
+<li>都是在浏览器本地存储</li>
+<li>都遵循同源原则，但sessionStorage限制在同一个页面</li>
+</ol>
+<p>区别：</p>
+<ol>
+<li>cookie是由服务器写入其余的都是由前端写入</li>
+<li>cookie的生命周期是在服务器写入时就设定好的；LocalStorage是写入就一直存在（除非手动清除）；SessionStorage是在页面关闭时清除</li>
+<li>cookie存储空间大概4kb左右，其余两个大概是5M</li>
+<li>前端发请求时会自动携带Cookie，其余两个不会</li>
+<li>cookie一般用于存储登录验证信息，LocalStorage存储不易变动的数据，sessionStorage可以用于检测用户是否刷新进入页面</li>
+</ol>
+<h4 id="JS数据类型有哪些-区别是什么？"><a href="#JS数据类型有哪些-区别是什么？" class="headerlink" title="JS数据类型有哪些,区别是什么？"></a>JS数据类型有哪些,区别是什么？</h4><p>Number、String、Boolean、Symbol、undefined、null、Object、BigInt</p>
+<p>简单数据类型：Number、String、Boolean、BigInt、Symbol、null、undefined</p>
+<p>复杂数据类型：Object</p>
+<p>简单数据类型的存储位置在栈</p>
+<p>复杂数据类型的变量与地址的对应关系存储在栈，具体的数据存储在堆</p>
+<p>Symbol的特点是没有重复数据，可以作为object的key</p>
+<p>Symbol的构造函数不完整，不能用<code>new Symbol()</code></p>
+<p>使用<code>Object.getOwnPropotypeSymbol(symbol)</code>获取<code>key</code>数组,并使用<code>obj[key[i]]</code>遍历</p>
+<p>BigInt不能与number进行计算</p>
+<p>Object.getOwnPropertySymbols</p>
+<h4 id="闭包的理解？"><a href="#闭包的理解？" class="headerlink" title="闭包的理解？"></a>闭包的理解？</h4><p>闭包形成的原理：作用域链，当前作用域可以访问上级作用域中的变量 闭包解决的问题：能够让函数作用域中的变量在函数执行结束之后不被销毁，同时也能在函数外部可以访问函数内部的局部变量。 闭包带来的问题：由于垃圾回收器不会将闭包中变量销毁，于是就造成了内存泄露，内存泄露积累多了就容易导致内存溢出。 加分回答 闭包的应用，能够模仿块级作用域，能够实现柯里化，在构造函数中定义特权方法、Vue中数据响应式Observer中使用闭包等。</p>
+<h4 id="说一说promise是什么与使用方法？"><a href="#说一说promise是什么与使用方法？" class="headerlink" title="说一说promise是什么与使用方法？"></a>说一说promise是什么与使用方法？</h4><p>作用：Promise 是异步微任务，解决了异步多层嵌套回调的问题，让代码的可读性更高，更容易维护。</p>
+<p><strong>Promise 的使用：</strong></p>
+<ul>
+<li>Promise 是 ES6 提供的一个构造函数，可以使用 Promise 构造函数 new 一个实例。</li>
+<li>Promise 构造函数接收一个函数作为参数，这个函数有两个参数，分别是两个函数<code>resolve</code>和<code>reject</code><ul>
+<li><code>resolve</code> 将 Promise 的状态由等待变为成功，将异步操作的结果作为参数传递过去。</li>
+<li><code>reject</code> 则将状态由等待转变为失败，在异步操作失败时调用，将异步操作报出的错误作为参数传递过去。</li>
+</ul>
+</li>
+<li>实例创建完成后，可以使用 <code>then</code>和<code>catch</code> 方法分别指定成功或失败的回调函数。</li>
+<li>then 和 catch 最终返回的也是一个 Promise，所以可以链式调用。</li>
+</ul>
+<p><strong>Promise 的特点：</strong></p>
+<ol>
+<li>对象的状态不受外界影响（Promise 对象代表一个异步操作，有三种状态）：<ul>
+<li>pending（执行中）</li>
+<li>Resolved（成功，又称 Fulfilled）</li>
+<li>rejected（拒绝） 其中 pending 为初始状态，fulfilled 和 rejected 为结束状态（结束状态表示 promise 的生命周期已结束）。</li>
+</ul>
+</li>
+<li>一旦状态改变，就不会再变。任何时候都可以得到这个结果。Promise 对象的状态改变只有两种可能（状态凝固了就不会再变了）：<ul>
+<li>从 Pending 变为 Resolved</li>
+<li>从 Pending 变为 Rejected</li>
+</ul>
+</li>
+<li>resolve 方法的参数是 then 中回调函数的参数；reject 方法中的参数是 catch 中的参数。</li>
+<li>then 方法和 catch 方法只要不报错返回都是一个 fulfilled 状态的 promise。</li>
+</ol>
+<p><strong>Promise 的其他方法</strong></p>
+<ul>
+<li>Promise.resolve()：返回一个状态为 fulfilled 的 Promise 对象，并且将该 value 传递给对应的 then 方法。</li>
+<li>Promise.reject()：返回一个状态为失败的 Promise 对象，并将给定失败信息传递给对应处理方法。</li>
+<li>Promise.all()：返回一个新 promise 对象，在所有 promise 都成功时才触发成功；一旦有任何一个 promise 失败则立即触发该 promise 失败。</li>
+<li>Promise.any()：接收一个 promise 集合；当其中任意一个 promise 成功，则返回那个成功值。</li>
+<li>Promise.race()：当任意子promise被成功或失败后，则父promise马上也会用子promise成功返回值或失败详情作为参数调用父promise绑定相应句柄并返回该promise对象。</li>
+</ul>
+<h4 id="说一说跨域是什么？如何解决跨域问题？"><a href="#说一说跨域是什么？如何解决跨域问题？" class="headerlink" title="说一说跨域是什么？如何解决跨域问题？"></a>说一说跨域是什么？如何解决跨域问题？</h4><p>定义：当前页面中的某个接口请求的地址和当前页面的地址如果协议、域名、端口其中有一项不同，就说该接口跨域了。</p>
+<p>跨域限制的原因：浏览器为了保证网页的安全，出的同源协议策略。</p>
+<p>跨域解决方案</p>
+<p><strong>cors</strong>：目前最常用的一种解决办法，通过设置后端允许跨域实现。</p>
+<ul>
+<li>res.setHeader(‘Access-Control-Allow-Origin’, ‘*’);</li>
+<li>res.setHeader(“Access-Control-Allow-Methods”, “GET, PUT, OPTIONS, POST”);</li>
+</ul>
+<p><strong>node中间件、nginx反向代理</strong>：跨域限制的时候浏览器不能跨域访问服务器，node中间件和nginx反向代理，都是让请求发给代理服务器，静态页面面和代理服务器是同源的，然后代理服务器再向后端服务器发请求，服务器和服务器之间不存在同源限制。</p>
+<p><strong>JSONP</strong>：利用的原理是script标签可以跨域请求资源，将回调函数作为参数拼接在url中。后端收到请求，调用该回调函数，并将数据作为参数返回去，注意设置响应头返回文档类型，应该设置成javascript。</p>
+<p><strong>postmessage</strong>：H5新增API，通过发送和接收API实现跨域通信</p>
+<h4 id="说一说BFC"><a href="#说一说BFC" class="headerlink" title="说一说BFC"></a>说一说BFC</h4><p>是Web页面一块独立的渲染区域，内部元素的渲染不会影响边界以外的元素。</p>
+<p><strong>布局规则</strong>：内部盒子会在垂直方向，一个接一个地放置；Box垂直方向的距离由margin决定，属于同一个BFC的两个相邻Box的margin会发生重叠；每个盒子（块盒与行盒）的margin box的左边，与包含块border box的左边相接触；BFC的区域不会与float box重叠；BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素；计算BFC高度时，浮动元素也参与计算</p>
+<p>形成BFC条件包括：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attribute">float</span><span class="selector-pseudo">:left</span>/<span class="attribute">right</span>;</span><br><span class="line">	<span class="attribute">position</span>:absolute/fixed;</span><br><span class="line">    <span class="attribute">overflow</span>:auto/scroll/hidden;</span><br><span class="line">    <span class="attribute">display</span>:flex/inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>关于清除浮动，虽然 BFC 的方式都能清除浮动，但常使用只有 <code>overflow:hidden</code>. 原因是使用 float 或 position 方式清除浮动虽然父级盒子内部浮动被清除了但父级本身又脱离文档流了会对父级后面兄弟盒子布局造成影响。如果设置父级为 display:flex 内部浮动就失效所以通常只用 overflow: hidden 清除浮动。</p>
+<blockquote>
+<p>除了 BFC 外还有 IFC（内联格式上下文）、GFC（网格布局格式化上下文）和 FFC（自适应格式上下文）。IFC 的高度由其包含行内元素中最高实际高度计算而来。当为一个元素设置 display 值为 grid 时，此元素将获得 GFC 独立渲染区域。display 值为 flex 或 inline-flex 的元素将生成 FFC 自适应容器。</p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>2023-3-13学习记录</p><p><a href="https://bisbis233/github.io/2023/03/13/2023-3-13学习记录/">https://bisbis233/github.io/2023/03/13/2023-3-13学习记录/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>一条懒狗</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2023-03-13</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-03-15</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2023/03/21/2023-3-21%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2023-3-21学习记录</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/03/09/2023-3-9%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><span class="level-item">2023/3/9学习记录</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://bisbis233/github.io/2023/03/13/2023-3-13%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/';
+            this.page.identifier = '2023/03/13/2023-3-13学习记录/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + '一条懒狗' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/imgs/avatar.jpg" alt="一条懒狗"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">一条懒狗</p><p class="is-size-6 is-block">前端小白</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>广州/珠海</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">7</p></a></div></div></nav></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/"><span class="level-start"><span class="level-item">学习汇总</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-03-21T08:36:30.000Z">2023-03-21</time></p><p class="title"><a href="/2023/03/21/2023-3-21%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">2023-3-21学习记录</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-03-13T01:35:06.000Z">2023-03-13</time></p><p class="title"><a href="/2023/03/13/2023-3-13%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">2023-3-13学习记录</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-03-09T03:00:41.000Z">2023-03-09</time></p><p class="title"><a href="/2023/03/09/2023-3-9%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">2023/3/9学习记录</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-03-08T13:26:09.000Z">2023-03-08</time></p><p class="title"><a href="/2023/03/08/4399%E7%AC%94%E8%AF%95/">4399笔试</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-03-07T13:24:34.000Z">2023-03-07</time></p><p class="title"><a href="/2023/03/07/%E9%87%91%E8%AF%81%E7%AC%94%E8%AF%95/">金证笔试</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Css/"><span class="tag">Css</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Html/"><span class="tag">Html</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript/"><span class="tag">JavaScript</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Sass/"><span class="tag">Sass</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vue2/"><span class="tag">Vue2</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/leetcode-%E6%A0%88-%E9%98%9F%E5%88%97/"><span class="tag">leetcode 栈 队列</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"><span class="tag">笔试题</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/imgs/avatar.jpg" alt="一条懒狗的博客" height="28"></a><p class="is-size-7"><span>&copy; 2023 一条懒狗</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
